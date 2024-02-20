@@ -21,13 +21,37 @@ The architecture of the solution we are building.
 ## Initial setup
 
 ### Step 1: Creating S3 buckets
-- In us-east-1 region, create an S3 bucket to store CloudGuardian's product details and features. Keep default settings.
+- In us-east-1 region, create an S3 bucket to store CloudGuardian's product details and features.
 
 ![Create S3 bucket](images/create-s3-bucket.png)
 
 - Click on `Upload`
 ![Upload button](images/upload-on-s3.png)
 
-- Then upload sample PDF in s3docs folder to your S3 bucket
+- Upload sample PDF in s3docs folder to your S3 bucket and keep default settings.
 
 ![Upload PDF](images/add-pdf-s3.png)
+
+- Once successfully uploaded, you should be able to view the file in your s3 bucket
+
+![View S3 files](images/view-files-s3.png)
+
+- Navigate to the Amazon Bedrock console, scroll on the left-hand side and click on `Model Access`
+
+![Model Access](images/br-console.png)
+
+- Click on `Manage model access`
+
+![Manage model access](images/manage-model-access.png)
+
+- Select all models
+
+![Select models](images/select-models.png)
+
+- Scroll down and `Save changes`
+
+![Save changes](images/br-save-changes.png)
+
+
+
+
