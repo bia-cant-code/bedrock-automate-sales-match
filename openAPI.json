@@ -1,0 +1,106 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "PricingPlanSales Assistant API",
+        "description": "API for sending summarized pricing plan emails based on industry",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/sendEmail": {
+            "post": {
+                "description": "Send an email with pricing plan search summary",
+                "parameters": [
+                    {
+                        "name": "RecipientEmailAddress",
+                        "in": "query",
+                        "description": "Recipient's email address",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "email"
+                        }
+                    },
+                    {
+                        "name": "Body",
+                        "in": "query",
+                        "description": "Email Body Containing the summary of Pricing plan search results",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Subject",
+                        "in": "query",
+                        "description": "Email Subject",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Email sent successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "email sent information",
+                                    "properties": {
+                                        "Response": {
+                                            "description": "API Response",
+                                            "type": "string",
+                                            "example": "Email Sent Successfully."
+                                        },
+                                        "Sender": {
+                                            "description": "Sender email",
+                                            "type": "string",
+                                            "example": "harfouch@amazon.com"
+                                        },
+                                        "Recipient": {
+                                            "description": "Recipient email",
+                                            "type": "string",
+                                            "example": "harfouch@amazon.com"
+                                        },
+                                        "Subject": {
+                                            "description": "Subject",
+                                            "type": "string",
+                                            "example": "Pricing Plan Details"
+                                        },
+                                        "Body": {
+                                            "description": "Email Body",
+                                            "type": "string",
+                                            "example": "The Basic Plan at $650/month is tailored for healthcare industry compliance with features like HIPAA encryption, PHI monitoring, and audit support."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Email sent successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Error information",
+                                    "properties": {
+                                        "snsStatusCode": {
+                                            "description": "API Response",
+                                            "type": "integer",
+                                            "example": "500"
+                                        },
+                                        "snsError": {
+                                            "description": "snsError",
+                                            "type": "string",
+                                            "example": "ServerError"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
