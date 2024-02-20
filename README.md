@@ -8,7 +8,7 @@ This repository contains a step-by-step guide and code samples build a simple au
 
 The architecture of the solution we are building.
 
-![Architecture Diagram](images/br-sales-agent-arch.drawio.png)
+![Architecture Diagram](images/br-sales-agent-arch.png)
 
 1. User input their website URL on the Streamlit app
 2. The app triggers the Amazon Bedrock agent
