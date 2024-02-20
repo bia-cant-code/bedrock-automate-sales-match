@@ -1,8 +1,9 @@
 # Using Amazon Bedrock to build a simple automation system 
 
-This repository contains a step-by-step guide and code samples build a simple automataion system powered by Generative AI to match new customers to relevant pricing plans in sales.
+This repository contains a step-by-step guide and code samples to build a simple automataion system powered by Generative AI to match new customers to relevant pricing plans in sales.
 
 ## What are we building
+This repo details the setup process for an Amazon Bedrock agent on AWS, which will include setting up a S3 bucket, a knowledge base, an action group, and a Lambda function. We will use the Streamlit framework for the user interface. The agent is built to identify the industry type from a website URL, find the best pricing plan from the knowledge base, and can also send emails if required.
 
 ## Architecture
 
@@ -21,14 +22,14 @@ The architecture of the solution we are building.
 ## Initial setup
 
 ### Step 1: Creating S3 buckets
-- In us-east-1 region, create an S3 bucket to store CloudGuardian's product details and features.
+- In us-east-1 region, create an S3 bucket to store CloudGuardian's product details and features. Keep default settings.
 
 ![Create S3 bucket](images/create-s3-bucket.png)
 
 - Click on `Upload`
 ![Upload button](images/upload-on-s3.png)
 
-- Upload sample PDF in s3docs folder to your S3 bucket and keep default settings.
+- Upload sample PDF in s3docs folder to your S3 bucket.
 
 ![Upload PDF](images/add-pdf-s3.png)
 
