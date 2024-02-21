@@ -103,7 +103,7 @@ I'm in the healthcare business, which pricing plan is relevant for me?
 ```
 ![Test KB](images/test-kb.png)
 
-- Feel free to test with other queries
+Feel free to test with other queries. 
 
 Now that you have created your knowledge base, let's move on to building and testing our Agents. 
 
