@@ -67,19 +67,19 @@ We will now build the backend of our solution.
 
 - Enter a name for your KB and description (optional). Keep the defaults, click on `Next`
 
-![Name KB](images/step-1-kb.png)
+![Step 1](images/step-1-kb.png)
 
 - Enter a name for your datasource and select the S3 location containing CloudGuardian's pricing plans. Click on `Next`
 
-![Data source](images/step-2-kb.png)
+![Step 2](images/step-2-kb.png)
 
 - Select the `Titan Embeddings G1 - Text` model
 
-![Embeddings Model](images/step-3-embeddings.png)
+![Step 3 pt.1](images/step-3-embeddings.png)
 
 - For this demo, we shall keep the [vector database](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html) as Amazon OpenSearch Serverless. Click on `Next`
 
-![Vector DB](images/step-3-vector-db.png)
+![Step 3 pt.2](images/step-3-vector-db.png)
 
 - Review your setup and click on `Create Knowledge Base`. This will take a few mins to setup
 
@@ -96,7 +96,6 @@ We will now build the backend of our solution.
 ![Sync DS](images/sync-data-src.png)
 
 - After data source is synced successfully, you can test the Knowledge Base by running a query to generate response. This functionality can also be disabled but for this demo we keep it as it is
-
 - Test the knowledge base with the below query:
 ```
 I'm in the healthcare business, which pricing plan is relevant for me?
@@ -109,5 +108,24 @@ Now that you have created your knowledge base, let's move on to building and tes
 
 ### Setup Amazon Bedrock Agents
 
+- Navigate to [Amazon Bedrock Agents](https://aws.amazon.com/bedrock/agents/) and click on `Create Agent`
+- Enter a suitable `Agent Name` and `Description`
 
+![Step 1](images/step-1-agent.png)
 
+- Keep defaults and click on `Next`
+- Anthropic Claude is the only available option at the moment. Provide clear and specific instructions for the agent to perform tasks
+```
+You are an agent that helps customers purchase pricing plans. You can 
+1/ if provided, infer industry type based on a user given URL. You cannot pass the URL to the knowledge base
+2/ only use knowledge base to search which pricing plan is the best fit to match industry type
+3/ always return details of the pricing plan price and its features, copy them out word-for-word from the knowledge base search results
+4/ then only ask for user details such as email address
+5/ if indicated they want to learn more, send email with pricing plan price and features
+If you're unsure say I don't know. 
+```
+![Step 2](images/step-2-agent.png)
+
+- Add Action groups. For our demo, we want the Agent to send an email on our behalf. For this to execute, we need to provide an exisiting [AWS Lambda]() function and a OpenAPI schema
+- Navigate to AWS Lambda and select `Create Function`
+- 
